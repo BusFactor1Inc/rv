@@ -12,6 +12,7 @@ let refresher;
 export function loadDataDispatcher (name, view, after) {
     return (dispatch) => {
 	console.log('Fetching posts: ' + name);
+	dispatch(viewAction("new"));
 	dispatch(afterAction(null));
 	dispatch(isLoadingAction(true));
 	dispatch(hasErroredAction(false));
@@ -47,6 +48,7 @@ export function loadDataDispatcher (name, view, after) {
 	    .then((postData) => {
 		console.log("Data action", postData.data);
 		dispatch(nameAction(name));
+		dispatch(viewAction(view));
 		dispatch(afterAction(postData.data.after));
 		dispatch(postsAction(postData.data.children));
 
@@ -55,7 +57,7 @@ export function loadDataDispatcher (name, view, after) {
 		}
 
 		refresher = setInterval(() => {
-		    refreshDataDispatcher(name)(dispatch);
+		    refreshDataDispatcher(name, view, after)(dispatch);
 		}, 60*1000);
 
 
@@ -72,11 +74,12 @@ export function loadDataDispatcher (name, view, after) {
     }
 }
 
-export function refreshDataDispatcher (name, lastAfter = null, count = 0) {
+export function refreshDataDispatcher (name, view = "new", lastAfter = null) {
     return (dispatch) => {
 	console.log('Refreshing posts: ' + name);
 
 	let url = "/subreddit?name=" + name +
+	    (view ? "&view=" + view : "") +
 	    (lastAfter ? "&before=" + lastAfter : "") +
 	    "&limit=1";
 

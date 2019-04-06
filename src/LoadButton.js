@@ -6,7 +6,8 @@ import { loadDataDispatcher } from './dispatchers';
 class LoadButton extends Component {
     onClick () {
 	let name = document.getElementById('name');
-	this.props.loadData(name.value);
+	let selector = document.getElementById('view');
+	this.props.loadData(name.value, selector.value);
     }
     render () {
 	return (
@@ -17,8 +18,8 @@ class LoadButton extends Component {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-	loadData: (name, start, after, count) => {
-	    dispatch(loadDataDispatcher(name, start, after, count))
+	loadData: (name, view, after) => {
+	    dispatch(loadDataDispatcher(name, view, after))
 	}
     }
 }

@@ -17,8 +17,10 @@ app.get('/subreddit', function (req, res) {
     let name = req.query.name;
     let before = req.query.before;
     let after = req.query.after;
+    let view = req.query.view.toLowerCase() || "new";
 
-    let url = "https://reddit.com/r/" + name + "/hot.json?" +
+    let url = "https://reddit.com/r/" + name + "/" +
+	view + ".json?" +
 	(after ? "&after=" + after : "") +
 	(before ? "&before=" + before : "");
 

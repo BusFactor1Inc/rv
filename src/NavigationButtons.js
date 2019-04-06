@@ -6,7 +6,7 @@ import { loadDataDispatcher } from './dispatchers';
 class StartButton extends Component {
     onClick () {
 	console.log('after', this.props.after);
-	this.props.loadData(this.props.name);
+	this.props.loadData(this.props.name, this.props.view);
     }
 
     render () {
