@@ -3,7 +3,12 @@ body {
   padding: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: lightblue;
+  background: #466E74;
+  font-color: ;
+}
+
+a:visited {
+    color: #131931
 }
 
 code {
@@ -12,10 +17,10 @@ code {
 }
 
 .TopBar {
-    background: grey;
+    background: #9EA091;
     padding: 1em;
     margin: 1em;
-    border: 1px solid red;
+    border: 1px solid #131931;
     border-radius: 3px;
     
 		
