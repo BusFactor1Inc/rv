@@ -1,25 +1,49 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+
+import LoadButton from './LoadButton';
+import NameField from './NameField';
+import Subreddit from './Subreddit';
+import Posts from './Posts';
+
+class Selector extends Component {
+    render () {
+	return ( <select id="view">
+		 <option value="Top">Top</option>
+		 <option value="New">New</option>
+		 <option value="Hot">Hot</option>
+		 </select>
+	       );
+    }
+}
+
+class TopBar extends Component {
+    render () {
+	return (
+		<div className="TopBar">
+		SubReddit Viewer (sv): &nbsp;
+		<NameField /> &nbsp;
+		<LoadButton /> &nbsp;
+		<Selector />
+		</div>
+	);
+    }
+}
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+	    <div className="App">
+	    <hr />
+	    <TopBar />
+	    <hr />
+	    <center>
+	    <Subreddit />
+	    <Posts />
+	    <hr />
+	    <Subreddit />
+	    Burton Samograd - 2019
+	    </center>
       </div>
     );
   }
