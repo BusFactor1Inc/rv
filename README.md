@@ -72,7 +72,7 @@ to fetch the JSON data from reddit.com.
 Notes:
 --
 
-By default it will load posts from the the /r/all page.
+By default it will load posts from the the /r/news (New) page.
 
 --
 Burton Samograd
