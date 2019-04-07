@@ -9,11 +9,11 @@ import { isLoadingAction,
 
 let refresher;
 
-export function loadDataDispatcher (name = "news", view = "New", after) {
+export function loadDataDispatcher (name = "news", view = "New", after = null) {
     return (dispatch) => {
 	console.log('Fetching posts: ' + name, view, after);
 	dispatch(viewAction(view));
-	dispatch(afterAction(null));
+	dispatch(afterAction(after));
 	dispatch(isLoadingAction(true));
 	dispatch(hasErroredAction(false));
 	dispatch(newPostsAction(false));
@@ -92,7 +92,7 @@ export function refreshDataDispatcher (name, view = "New", lastAfter) {
 	    .then((response) => response.json())
 	    .then((postData) => {
 		console.log("Data action", postData.data);
-		if(postData.data.after !== lastAfter) {
+		if(lastAfter !== null && postData.data.after !== lastAfter) {
 		    dispatch(newPostsAction(true));
 		}
 	    })
