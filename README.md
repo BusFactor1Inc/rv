@@ -82,6 +82,12 @@ Notes:
 
 By default it will load posts from the the /r/news (New) page.
 
+
+TODO:
+
+-- find and show the first sentences of the top 3 top level comments
+   for stories through a click of a button
+
 --
 Burton Samograd
 
