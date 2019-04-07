@@ -1,6 +1,8 @@
 Reddit Viewer (rv)
 ==
 
+![Screeshot of /r/lisp](screenshot.png)
+
 A simple subreddit viewer written in React and Redux.
 
 Features:
