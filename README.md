@@ -88,6 +88,8 @@ TODO:
 -- find and show the first sentences of the top 3 top level comments
    for stories through a click of a button
 
+-- backup and mirror headline stories using wget
+
 --
 Burton Samograd
 
