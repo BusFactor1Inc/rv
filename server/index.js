@@ -1,3 +1,4 @@
+const fs = require('fs');
 const fetch = require('node-fetch');
 const express = require('express');
 const bodyParser = require('body-parser')
@@ -7,7 +8,8 @@ app.use(express.static(path.join(__dirname, '..', 'build')));
 
 const Cache = require('timed-cache');
 
-let cache = new Cache({ defaultTtl: 60 * 1000 }); // 60 second cache
+let cache = new Cache({ defaultTtl: (process.env.CACHE_SECONDS || 60) * 1000 }); 
+// default 60 second cache
 
 app.get('/ping', function (req, res) {
  return res.send('pong');
@@ -52,6 +54,7 @@ app.get('/subreddit', function (req, res) {
 	    res.setHeader('Content-type', 'application/json');
 	    let jsonString = JSON.stringify(json);
 	    cache.put(cacheEntry, jsonString);
+	    fs.appendFileSync(JSON.stringify(cacheEntry), jsonString);
 	    res.end(jsonString);
 	})
 	.catch((e) => {

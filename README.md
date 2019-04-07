@@ -69,8 +69,13 @@ in reducers.js.  All other files are React components.
 Due to in brower CORS safetry restrictions, an external server/ is used
 to fetch the JSON data from reddit.com.
 
+Caching
+--
+
 The server contains a basic 60 second timed cache to help with scaling
 the service by caching frequently fetched urls, like "news (New)".
+The cache time can be set using the CACHE_SECONDS environment variable
+on start.
 
 Notes:
 --
