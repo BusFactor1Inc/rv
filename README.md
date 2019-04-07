@@ -49,6 +49,14 @@ To start the main server:
 
 All browser requsts are proxied to the development server.
 
+Testing
+--
+
+All components are tested to be sure they do not crash when rendering.
+
+TODO: More thorough testing could be done, using a mock server and
+json data.
+
 Design Notes:
 --
 

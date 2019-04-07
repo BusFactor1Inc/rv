@@ -52,17 +52,28 @@ class PostLink extends Component {
 class Post extends Component {
     render () {
 	//console.log(this.props.data);
+	let data = this.props.data || {
+	    id: 0,
+	    title: "Unknown",
+	    url: "http://",
+	    thumbnail: "",
+	    author: "Unknown",
+	    permalink: "http://",
+	    time: "0"
+	}
+
 	return (
-		<div key={this.props.data.id} className="Post">
+		<div key={data.id} 
+	             className="Post">
 		<PostLink
-	    title={this.props.data.title}
-	    url={this.props.data.url}
-	    thumbnail={this.props.data.thumbnail}
+	    title={data.title}
+	    url={data.url}
+	    thumbnail={data.thumbnail}
 	    />
 		<PostInfo 
-	    author={this.props.data.author} 
-	    comments={this.props.data.permalink} 
-	    time={this.props.data.created_utc}
+	    author={data.author} 
+	    comments={data.permalink} 
+	    time={data.created_utc}
 	    />
 		</div>
 	);

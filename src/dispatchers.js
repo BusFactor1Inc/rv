@@ -9,16 +9,14 @@ import { isLoadingAction,
 
 let refresher;
 
-export function loadDataDispatcher (name, view, after) {
+export function loadDataDispatcher (name = "news", view = "New", after) {
     return (dispatch) => {
-	console.log('Fetching posts: ' + name);
-	dispatch(viewAction("new"));
+	console.log('Fetching posts: ' + name, view, after);
+	dispatch(viewAction(view));
 	dispatch(afterAction(null));
 	dispatch(isLoadingAction(true));
 	dispatch(hasErroredAction(false));
 	dispatch(newPostsAction(false));
-
-	name = name || "all";
 
 	let viewSelector = document.getElementById('view');
 	if(view) {
@@ -74,9 +72,9 @@ export function loadDataDispatcher (name, view, after) {
     }
 }
 
-export function refreshDataDispatcher (name, view = "new", lastAfter = null) {
+export function refreshDataDispatcher (name, view = "New", lastAfter) {
     return (dispatch) => {
-	console.log('Refreshing posts: ' + name);
+	console.log('Refreshing posts: ' + name, view, lastAfter);
 
 	let url = "/subreddit?name=" + name +
 	    (view ? "&view=" + view : "") +

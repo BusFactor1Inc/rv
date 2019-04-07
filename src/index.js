@@ -15,7 +15,7 @@ import { loadDataDispatcher } from './dispatchers';
 ReactDOM.render(<Provider store={store}><App /></Provider>, 
 		document.getElementById('root'));
 
-loadDataDispatcher("all", "New")(store.dispatch);
+loadDataDispatcher()(store.dispatch);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
