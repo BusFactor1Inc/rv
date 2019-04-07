@@ -21,7 +21,7 @@ class TopBar extends Component {
     render () {
 	return (
 		<div className="TopBar">
-		SubReddit Viewer (sv): &nbsp;
+		Reddit Viewer (rv): &nbsp;
 		<NameField /> &nbsp;
 		<LoadButton /> &nbsp;
 		<Selector />
