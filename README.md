@@ -24,11 +24,11 @@ Usage:
 ```$ node server```
 
 This will build the production site and run the fetching server on
-port 3000 by default. 
+port 8080 by default. 
 
 You can use the PORT environment variable to change this:
 
-```$ PORT=8080 node server```
+```$ PORT=... node server```
 
 Open your browser at http://localhost:3000/ to view the application.
 
